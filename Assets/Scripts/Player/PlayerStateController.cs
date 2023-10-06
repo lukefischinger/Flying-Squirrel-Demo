@@ -4,6 +4,7 @@ public class PlayerStateController : MonoBehaviour {
     Animator myAnimator;
     PlayerInput input;
     RunInformation runInformation;
+    Transform animationTransform;
 
     public enum PlayerState { Idling, Running, Gliding, Falling, Jumping, Climbing };
     public PlayerState myPlayerState;
@@ -17,11 +18,12 @@ public class PlayerStateController : MonoBehaviour {
 
     float climbingResetTime = 0.35f;
     float climbingResetTimeRemaining = 0f;
-
+    const float pixelsPerUnit = 32;
 
     // Start is called before the first frame update
     void Awake() {
-        myAnimator = GetComponent<Animator>();
+        myAnimator = GetComponentInChildren<Animator>();
+        animationTransform = myAnimator.transform;
         input = GetComponent<PlayerInput>();
         runInformation = input.runInformation;
 
@@ -33,12 +35,14 @@ public class PlayerStateController : MonoBehaviour {
         jump = GetComponent<PlayerJumping>();
         fall = GetComponent<PlayerFalling>();
 
+        
     }
 
 
     private void Update() {
         SetPlayerAnimationVariables();
         FlipSprite();
+        SnapAnimationTransform();
     }
 
     private void FixedUpdate() {
@@ -107,21 +111,16 @@ public class PlayerStateController : MonoBehaviour {
             transform.localScale = new Vector2(input.directionFacing * Mathf.Abs(transform.localScale.x), transform.localScale.y);
         }
 
-        // if gliding, the 
+        // if gliding, the sprite rotates up to 60 degrees to account for vertical movement
         if (myPlayerState == PlayerState.Gliding) {
-            float maxXYRatio = Mathf.Pow(input.myRigidbody.velocity.x / 5, 2); // 
-            Vector2 adjustedVelocity = new Vector2(input.myRigidbody.velocity.x, Mathf.Max(Mathf.Min(input.myRigidbody.velocity.y, maxXYRatio), -maxXYRatio));
-
-            if (input.directionFacing != input.directionMoving) {
-                float t = Mathf.Min(Mathf.Max(Mathf.Abs(input.myRigidbody.velocity.x) / 8, 0), 1);
-                float angleRotation = 150 * t + 90 * (1 - t);
-
-                transform.up = Quaternion.Euler(Vector3.forward * input.directionMoving * angleRotation) * adjustedVelocity;
-            }
-            else {
-                transform.up = Quaternion.Euler(Vector3.forward * input.directionFacing * 90f) * adjustedVelocity;
-
-            }
+            //float maxXYRatio = Mathf.Pow(input.myRigidbody.velocity.x * 0.2f, 2);
+            Vector2 adjustedVelocity = new Vector2(
+                                            input.directionFacing * input.directionMoving * input.myRigidbody.velocity.x, 
+                                            input.myRigidbody.velocity.y
+                                       );
+            
+            myAnimator.SetFloat("glidingAngle", input.directionFacing * Vector2.SignedAngle(Vector2.right * input.directionFacing, adjustedVelocity));
+            Debug.Log(input.directionFacing * Vector2.SignedAngle(Vector2.right * input.directionFacing, adjustedVelocity));
 
         }
         else {
@@ -222,10 +221,14 @@ public class PlayerStateController : MonoBehaviour {
             return;
         }
 
-
-
         if (collision.gameObject.tag == "Tree" & input.isPressingGrab) {
             myPlayerState = PlayerState.Climbing;
         }
+    }
+
+    void SnapAnimationTransform() {
+        float x = Mathf.Round(transform.position.x * pixelsPerUnit) / pixelsPerUnit,
+              y = Mathf.Round(transform.position.y * pixelsPerUnit) / pixelsPerUnit;
+        animationTransform.position = new Vector2(x, y);
     }
 }

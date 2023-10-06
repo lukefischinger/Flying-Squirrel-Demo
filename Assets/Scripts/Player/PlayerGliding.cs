@@ -24,7 +24,7 @@ public class PlayerGliding : MonoBehaviour {
         clampedY = Mathf.Clamp(absY, 2.5f, 16f);
         absV = input.myRigidbody.velocity.magnitude;
 
-        // if moving upward, deltaX is equal to the smaller of current horizontal velocity or the specified deceleration amount
+        // if moving upward, add force to slow x movement
         // deltaY is equal to a positive, constant multiple of deltaX
         if (input.moveInput.y > Mathf.Epsilon && absX > Mathf.Epsilon && !input.isGroundedHead) {
             deltaX = -input.directionMoving * Mathf.Min(absX, input.moveInput.y * runInfo.acceleration);

@@ -71,7 +71,7 @@ public class RunInformation : ScriptableObject
         treeSnappingSpeed = 10f;
         seedSpeed = 30;
         fallingThreshold = -0.0001f;
-        acceleration = 20f;
+        acceleration = 14f;
 
         upgrades = new List<string>();
         upgradesToApply = new List<string>();
