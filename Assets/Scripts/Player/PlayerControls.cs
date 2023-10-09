@@ -73,7 +73,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Grab Wall"",
+                    ""name"": ""Climb"",
                     ""type"": ""Button"",
                     ""id"": ""3a3e170a-4e02-448c-a2eb-bbbb2e1182fd"",
                     ""expectedControlType"": ""Button"",
@@ -297,7 +297,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard&Mouse"",
-                    ""action"": ""Grab Wall"",
+                    ""action"": ""Climb"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -308,7 +308,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
-                    ""action"": ""Grab Wall"",
+                    ""action"": ""Climb"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -319,7 +319,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard&Mouse"",
-                    ""action"": ""Grab Wall"",
+                    ""action"": ""Climb"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -330,7 +330,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard&Mouse"",
-                    ""action"": ""Grab Wall"",
+                    ""action"": ""Climb"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -967,7 +967,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         m_Player_Fire = m_Player.FindAction("Fire", throwIfNotFound: true);
         m_Player_Jump = m_Player.FindAction("Jump", throwIfNotFound: true);
         m_Player_Glide = m_Player.FindAction("Glide", throwIfNotFound: true);
-        m_Player_GrabWall = m_Player.FindAction("Grab Wall", throwIfNotFound: true);
+        m_Player_Climb = m_Player.FindAction("Climb", throwIfNotFound: true);
         m_Player_Dig = m_Player.FindAction("Dig", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
@@ -1045,7 +1045,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Fire;
     private readonly InputAction m_Player_Jump;
     private readonly InputAction m_Player_Glide;
-    private readonly InputAction m_Player_GrabWall;
+    private readonly InputAction m_Player_Climb;
     private readonly InputAction m_Player_Dig;
     public struct PlayerActions
     {
@@ -1056,7 +1056,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         public InputAction @Fire => m_Wrapper.m_Player_Fire;
         public InputAction @Jump => m_Wrapper.m_Player_Jump;
         public InputAction @Glide => m_Wrapper.m_Player_Glide;
-        public InputAction @GrabWall => m_Wrapper.m_Player_GrabWall;
+        public InputAction @Climb => m_Wrapper.m_Player_Climb;
         public InputAction @Dig => m_Wrapper.m_Player_Dig;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
@@ -1082,9 +1082,9 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 @Glide.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnGlide;
                 @Glide.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnGlide;
                 @Glide.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnGlide;
-                @GrabWall.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnGrabWall;
-                @GrabWall.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnGrabWall;
-                @GrabWall.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnGrabWall;
+                @Climb.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnClimb;
+                @Climb.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnClimb;
+                @Climb.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnClimb;
                 @Dig.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDig;
                 @Dig.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDig;
                 @Dig.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDig;
@@ -1107,9 +1107,9 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 @Glide.started += instance.OnGlide;
                 @Glide.performed += instance.OnGlide;
                 @Glide.canceled += instance.OnGlide;
-                @GrabWall.started += instance.OnGrabWall;
-                @GrabWall.performed += instance.OnGrabWall;
-                @GrabWall.canceled += instance.OnGrabWall;
+                @Climb.started += instance.OnClimb;
+                @Climb.performed += instance.OnClimb;
+                @Climb.canceled += instance.OnClimb;
                 @Dig.started += instance.OnDig;
                 @Dig.performed += instance.OnDig;
                 @Dig.canceled += instance.OnDig;
@@ -1274,7 +1274,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         void OnFire(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
         void OnGlide(InputAction.CallbackContext context);
-        void OnGrabWall(InputAction.CallbackContext context);
+        void OnClimb(InputAction.CallbackContext context);
         void OnDig(InputAction.CallbackContext context);
     }
     public interface IUIActions
