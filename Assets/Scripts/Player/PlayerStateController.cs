@@ -28,6 +28,7 @@ public class PlayerStateController : MonoBehaviour {
 
     private void Update() {
         Transition();
+        Debug.Log(myPlayerState);
     }
 
     private void FixedUpdate() {
@@ -53,7 +54,7 @@ public class PlayerStateController : MonoBehaviour {
     }
 
     void SetAirState() {
-        if (physics.jumpTimeRemaining > 0)
+        if (physics.jumpTimeRemaining > 0 && myPlayerState == PlayerState.Jumping)
             myPlayerState = PlayerState.Jumping;
         else if (input.isPressingGlide)
             myPlayerState = PlayerState.Gliding;
@@ -83,7 +84,7 @@ public class PlayerStateController : MonoBehaviour {
     }
 
     bool IsJumping() {
-        if (input.isStartingJump || physics.SavedJumpCount > 0) {
+        if (physics.canJump && (input.isJumpTriggered || physics.SavedJumpCount > 0)) {
             if (physics.jumpTimeRemaining <= 0) {
                 physics.StartJump();
                 myPlayerState = PlayerState.Jumping;
@@ -91,11 +92,11 @@ public class PlayerStateController : MonoBehaviour {
 
             }
             else {
-                physics.SavedJumpCount += input.isStartingJump ? 1 : 0;
+                physics.SavedJumpCount += input.isJumpTriggered ? 1 : 0;
             }
             return true;
         }
-        else if (physics.jumpTimeRemaining > 0) {
+        else if (physics.jumpTimeRemaining > 0 && myPlayerState == PlayerState.Jumping) {
             return true;
         }
 

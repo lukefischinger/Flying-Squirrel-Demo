@@ -29,6 +29,7 @@ public class PlayerPhysics : MonoBehaviour {
     public bool isFalling => myRigidbody.velocity.y < fallingThreshold;
     public bool isGroundedHead => myHeadCollider.IsTouchingLayers(LayerMask.GetMask("Ground"));
     public bool isTouchingTrees => myBodyCollider.IsTouchingLayers(LayerMask.GetMask("Trees"));
+    public bool canJump => jumpCount < numJumpsAllowed;
 
     // X movement
     float forceX;
@@ -90,15 +91,15 @@ public class PlayerPhysics : MonoBehaviour {
     }
 
     public void Idle() {
+        myRigidbody.gravityScale = baseGravity;
         SetMovementX();
         ResetJumpCount();
-        myRigidbody.gravityScale = baseGravity;
     }
 
     public void Run() {
-        ResetJumpCount();
-        SetMovementX();
         myRigidbody.gravityScale = baseGravity;
+        SetMovementX();
+        ResetJumpCount();
     }
 
     // when gliding, the player can perform a few different actions:

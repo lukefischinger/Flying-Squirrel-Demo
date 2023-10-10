@@ -1,0 +1,101 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Cloud Atlas
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 0
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings:
+    - serializedVersion: 3
+      m_BuildTarget: DefaultTexturePlatform
+      m_MaxTextureSize: 2048
+      m_ResizeAlgorithm: 0
+      m_TextureFormat: -1
+      m_TextureCompression: 0
+      m_CompressionQuality: 50
+      m_CrunchedCompression: 0
+      m_AllowsAlphaSplitting: 0
+      m_Overridden: 0
+      m_AndroidETC2FallbackOverride: 0
+      m_ForceMaximumCompressionQuality_BC6H_BC7: 0
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 1
+      enableTightPacking: 1
+      enableAlphaDilation: 0
+    secondaryTextureSettings: {}
+    variantMultiplier: 1
+    packables:
+    - {fileID: 2800000, guid: b628ccf960491d64085ce42e53882961, type: 3}
+    - {fileID: 2800000, guid: 5b09f4e9f66c48b468553cac4d5c47d3, type: 3}
+    bindAsDefault: 1
+    isAtlasV2: 0
+    cachedData: {fileID: 0}
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: -149642394, guid: 5b09f4e9f66c48b468553cac4d5c47d3, type: 3}
+  - {fileID: -784718049, guid: 5b09f4e9f66c48b468553cac4d5c47d3, type: 3}
+  - {fileID: -1484944006, guid: 5b09f4e9f66c48b468553cac4d5c47d3, type: 3}
+  - {fileID: 1162540668, guid: 5b09f4e9f66c48b468553cac4d5c47d3, type: 3}
+  - {fileID: 1099705969, guid: 5b09f4e9f66c48b468553cac4d5c47d3, type: 3}
+  - {fileID: 512486949, guid: 5b09f4e9f66c48b468553cac4d5c47d3, type: 3}
+  - {fileID: 1144016511, guid: 5b09f4e9f66c48b468553cac4d5c47d3, type: 3}
+  - {fileID: -770489211, guid: 5b09f4e9f66c48b468553cac4d5c47d3, type: 3}
+  - {fileID: -365833286, guid: 5b09f4e9f66c48b468553cac4d5c47d3, type: 3}
+  - {fileID: -1180349389, guid: 5b09f4e9f66c48b468553cac4d5c47d3, type: 3}
+  - {fileID: 1722460978, guid: 5b09f4e9f66c48b468553cac4d5c47d3, type: 3}
+  - {fileID: -411053189, guid: 5b09f4e9f66c48b468553cac4d5c47d3, type: 3}
+  - {fileID: -761544380, guid: 5b09f4e9f66c48b468553cac4d5c47d3, type: 3}
+  - {fileID: -1700607203, guid: 5b09f4e9f66c48b468553cac4d5c47d3, type: 3}
+  - {fileID: -1515522367, guid: b628ccf960491d64085ce42e53882961, type: 3}
+  - {fileID: 1336242346, guid: b628ccf960491d64085ce42e53882961, type: 3}
+  - {fileID: 1853347176, guid: b628ccf960491d64085ce42e53882961, type: 3}
+  - {fileID: -1410608527, guid: b628ccf960491d64085ce42e53882961, type: 3}
+  - {fileID: 1738344179, guid: b628ccf960491d64085ce42e53882961, type: 3}
+  - {fileID: 440157378, guid: b628ccf960491d64085ce42e53882961, type: 3}
+  - {fileID: 1119195218, guid: b628ccf960491d64085ce42e53882961, type: 3}
+  - {fileID: 662485579, guid: b628ccf960491d64085ce42e53882961, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - Cloud3_13
+  - Cloud3_12
+  - Cloud3_11
+  - Cloud3_10
+  - Cloud3_8
+  - Cloud3_9
+  - Cloud3_0
+  - Cloud3_1
+  - Cloud3_2
+  - Cloud3_3
+  - Cloud3_4
+  - Cloud3_5
+  - Cloud3_6
+  - Cloud3_7
+  - Cloud0_7
+  - Cloud0_6
+  - Cloud0_5
+  - Cloud0_4
+  - Cloud0_3
+  - Cloud0_2
+  - Cloud0_1
+  - Cloud0_0
+  m_RenderDataMap: {}
+  m_Tag: Cloud Atlas
+  m_IsVariant: 0
