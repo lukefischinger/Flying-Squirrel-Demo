@@ -28,7 +28,6 @@ public class PlayerStateController : MonoBehaviour {
 
     private void Update() {
         Transition();
-        Debug.Log(myPlayerState);
     }
 
     private void FixedUpdate() {

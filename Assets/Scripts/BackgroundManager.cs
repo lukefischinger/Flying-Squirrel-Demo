@@ -21,8 +21,7 @@ public class BackgroundManager : MonoBehaviour {
 
 
     private void Awake() {
-        cloudDrift = (Random.value + 0.5f) *
-                         (Random.value < 0.5f ? -1 : 1);
+        cloudDrift = (Random.value * 0.5f + 0.75f);
 
         CinemachineCore.CameraUpdatedEvent.RemoveListener(OnCameraUpdated);
         CinemachineCore.CameraUpdatedEvent.AddListener(OnCameraUpdated);

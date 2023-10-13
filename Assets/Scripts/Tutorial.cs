@@ -1,119 +1,137 @@
+using System;
+using System.Linq;
 using TMPro;
 using UnityEngine;
+using Yarn.Unity;
 using static PlayerStateController;
 
-public class Tutorial : MonoBehaviour {
+public class Tutorial : MonoBehaviour
+{
 
-    string[] instructions = new string[] {
-        "Press a or d to run",
-        "Press w or s in front of a tree to climb it",
-        "Press space to jump",
-        "Press space while in the air to jump again",
-        "Hold space while in the air to glide",
-        "Hold s while gliding to dive quickly",
-        "Hold w while diving to pull up",
-        "Almost! Try diving more quickly, then holding w to pull up",
-        "Wow, you're an old pro! Go test out those skills"
-    };
+    [SerializeField] DialogueRunner dialogueRunner;
+    [SerializeField] GameObject continueButton;
 
-    PlayerInput input;
-    TextMeshProUGUI text;
-    PlayerStateController stateController;
-    PlayerPhysics physics;
-
-    int finished = 0;
-    int Finished {
-        get {
-            return finished;
-        }
-        set {
-            textTimeRemaining = textTime;
-            finished = value;
-        }
-    }
-
-    float textTime = 2f,
-          textTimeRemaining,
-          glidingTimer = 3f;
-
-    private void Awake() {
+    private void Awake()
+    {
         input = GameObject.Find("Player").GetComponent<PlayerInput>();
         stateController = input.GetComponent<PlayerStateController>();
         physics = input.GetComponent<PlayerPhysics>();
+    }
 
-        text = GetComponentInChildren<TextMeshProUGUI>();
-        text.text = instructions[Finished];
+    PlayerInput input;
+    PlayerStateController stateController;
+    PlayerPhysics physics;
+
+    const float solvedDelay = 2f;
+
+
+
+    static readonly string[] testNames = new string[] {
+        "Running",
+        "Climbing",
+        "Jumping",
+        "DoubleJumping",
+        "Gliding",
+        "Diving",
+        "PullingUp",
+    };
+
+    public bool[] passed = new bool[9];
+
+    bool IsPassedThisFrame(string title)
+    {
+        return title switch
+        {
+            "Running" => input.moveInput.x != 0,
+            "Climbing" => stateController.myPlayerState == PlayerState.Climbing,
+            "Jumping" => input.isJumpTriggered,
+            "DoubleJumping" => input.isJumpTriggered && !physics.isGrounded,
+            "Gliding" => stateController.myPlayerState == PlayerState.Gliding,
+            "Diving" => stateController.myPlayerState == PlayerState.Gliding && input.moveInput.y < 0 && physics.myRigidbody.velocity.y < -15f,
+            "PullingUp" => stateController.myPlayerState == PlayerState.Gliding && input.moveInput.y > 0 && physics.myRigidbody.velocity.y > 0f,
+            _ => false
+        };
+    }
+
+    bool IsPassed(string title)
+    {
+        return passed[Array.IndexOf(testNames, title)];
+    }
+
+    void SetPassed(string title, bool value = true)
+    {
+        passed[Array.IndexOf(testNames, title)] = value;
+    }
+
+    private void Update()
+    {
+        if (IsPassedThisFrame(dialogueRunner.CurrentNodeName))
+            dialogueRunner.VariableStorage.SetValue("$step_complete", true);
+
+        if (testNames.Contains(dialogueRunner.CurrentNodeName))
+        {
+            bool stepComplete;
+            dialogueRunner.VariableStorage.TryGetValue("$step_complete", out stepComplete);
+            continueButton.SetActive(stepComplete);
+        }
+        else ShowContinueButton();
+
     }
 
 
-    private void Update() {
-        if (textTimeRemaining > 0) {
-            textTimeRemaining -= Time.deltaTime;
-            return;
-        }
 
-        switch (Finished) {
-            case 0:
-                if (input.moveInput.x != 0)
-                    Finished++;
-
-                break;
-
-            case 1:
-                if (stateController.myPlayerState == PlayerState.Climbing)
-                    Finished++;
-
-                break;
-
-            case 2:
-                if (input.isJumpTriggered)
-                    Finished++;
-
-                break;
-
-            case 3:
-                if (input.isJumpTriggered && !physics.isGrounded)
-                    Finished++;
-                break;
-
-            case 4:
-                if (stateController.myPlayerState == PlayerState.Gliding) {
-                    if (glidingTimer < 0)
-                        Finished++;
-                    else glidingTimer -= Time.deltaTime;
-                }
-                break;
-
-            case 5:
-                if (stateController.myPlayerState == PlayerState.Gliding && input.moveInput.y < 0 && physics.myRigidbody.velocity.y < -15f)
-                    Finished++;
-                break;
-
-            case 6:
-                if (stateController.myPlayerState == PlayerState.Gliding && input.moveInput.y > 0) {
-                    if (physics.myRigidbody.velocity.y > 0 && physics.myRigidbody.velocity.x < 1f)
-                        Finished++;
-                    else if (physics.myRigidbody.velocity.y > 6)
-                        Finished += 2;
-                }
-
-                break;
-            case 7:
-                if (stateController.myPlayerState == PlayerState.Gliding && input.moveInput.y > 0 && physics.myRigidbody.velocity.y > 6)
-                    Finished++;
-
-                break;
-            case 8:
-                Destroy(gameObject);
-                break;
-
-
-
-            default:
-                break;
-        }
-
-        text.text = instructions[finished];
+    [YarnFunction("get_next_node")]
+    public static string GetNode(int curr)
+    {
+        if (curr >= testNames.Length)
+            return "none";
+        else return testNames[curr];
     }
 
+    [YarnFunction("get_node_number")]
+    public static int GetNodeNumber(string curr)
+    {
+        return Array.IndexOf(testNames, curr);
+    }
+
+
+    [YarnCommand("hide_continue_button")]
+    public void ShowContinueButton() {
+        continueButton.SetActive(true);
+    }
+
+    [YarnCommand("show_continue_button")]
+    public void HideContinueButton() {
+        continueButton.SetActive(false);
+    }
+
+    /*void UpdateDialogue(string next = "default")
+        {
+            dialogueText.color = Color.white;
+            dialogueText.fontStyle = FontStyles.Normal;
+            solvedTimer = solvedDelay;
+
+            if (next == "default")
+                finished = Array.FindIndex(passed, 0, (bool val) => val == false);
+            else finished = Array.IndexOf(testNames, next);
+
+            Debug.Log(finished + ": " + currentTestName);
+
+            currentTestName = testNames[finished];
+
+            if (dialogueRunner.IsDialogueRunning)
+                dialogueRunner.Stop();
+            dialogueRunner.StartDialogue(testNames[finished]);
+        }
+
+        void ShowPassed(bool delay = true, string next = "default")
+        {
+            if (!delay || !dialogueRunner.IsDialogueRunning || solvedTimer < 0)
+                UpdateDialogue(next);
+            else
+            {
+                dialogueText.color = Color.green;
+                solvedTimer -= Time.deltaTime;
+            }
+        }*/
 }

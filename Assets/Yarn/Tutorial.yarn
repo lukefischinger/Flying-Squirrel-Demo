@@ -1,0 +1,125 @@
+﻿title: Introduction
+position: -719,-153
+---
+<<declare $do_tutorial = true as bool>>
+<<declare $tutorial_complete = false>>
+Hi, I'm __. Do you know all the different ways you can move, or should I remind you?
+    -> I remember how to move.
+        <<jump GoAhead>>
+    -> Please remind me.
+        <<jump StartTutorial>>
+===
+
+title: StartTutorial
+position: -408,15
+---
+Sure, let's go through it.
+<<declare $step_complete = false as bool>>
+<<declare $next_step = 0 as number>>
+<<jump {get_next_node($next_step)}>>
+===
+
+title: JumpToNext
+---
+<<if $step_complete>>
+    <<set $step_complete = false>>
+    <<set $next_step = $next_step + 1>>
+    <<show_continue_button DialogueSystem>>
+<<endif>>
+<<jump {get_next_node($next_step)}>>
+===
+
+title: Running
+position: -165,15
+---
+<<hide_continue_button DialogueSystem>>
+
+Press a or d to run.
+
+<<jump JumpToNext>>
+===
+
+title: Climbing
+position: -158,156
+---
+<<hide_continue_button DialogueSystem>>
+
+Press w or s in front of a tree to climb it
+<<jump JumpToNext>>
+===
+
+
+title: Jumping
+position: -155,304
+---
+<<hide_continue_button DialogueSystem>>
+
+Press space to jump
+<<jump JumpToNext>>
+===
+
+title: DoubleJumping
+position: -156,437
+---
+Press space while in the air to jump again
+<<jump JumpToNext>>
+===
+title: Gliding
+position: -152,581
+---
+Hold space while in the air to glide
+<<jump JumpToNext>>
+===
+title: Diving
+position: -148,723
+---
+Hold s while gliding to dive quickly
+<<jump JumpToNext>>
+===
+title: PullingUp
+position: -142,871
+---
+Hold w while diving to pull up. The faster you dive, the more you can pull up.
+
+<<jump Final>>
+===
+
+title: Final
+position: -150,1158
+---
+<<set $tutorial_complete = true>>
+Wow, you're already an old pro! 
+If you want to test your skills, I can time you on this course I set up.
+    -> Sure!
+    -> I need to practice on my own first, but maybe later.
+===
+
+
+title: NoPassing
+position: -717,7
+---
+<<if visited("Introduction")>>
+    Hang on, you're not ready for that yet. Or do you remember how to move now?
+        -> Yes, I remember now. Let me pass!
+            <<jump GoAhead>>
+        -> No, I still need a reminder.
+            <<jump StartTutorial>>
+
+<<else>>
+    Hang on, do you know how to move already?
+        -> Yep!
+            <<jump GoAhead>>
+        -> No, can you remind me?
+            <<jump StartTutorial>>
+<<endif>>
+
+===
+
+
+title: GoAhead
+position: -412,-153
+---
+<<set $tutorial_complete = true>>
+Alright, you can go on ahead.
+===
+
