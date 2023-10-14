@@ -1,6 +1,5 @@
 using System;
 using System.Linq;
-using TMPro;
 using UnityEngine;
 using Yarn.Unity;
 using static PlayerStateController;
@@ -22,9 +21,9 @@ public class Tutorial : MonoBehaviour
     PlayerStateController stateController;
     PlayerPhysics physics;
 
-    const float solvedDelay = 2f;
-
-
+    float bestTime = Mathf.Infinity;
+    float timeStarted;
+    int attempts = 0;
 
     static readonly string[] testNames = new string[] {
         "Running",
@@ -53,16 +52,6 @@ public class Tutorial : MonoBehaviour
         };
     }
 
-    bool IsPassed(string title)
-    {
-        return passed[Array.IndexOf(testNames, title)];
-    }
-
-    void SetPassed(string title, bool value = true)
-    {
-        passed[Array.IndexOf(testNames, title)] = value;
-    }
-
     private void Update()
     {
         if (IsPassedThisFrame(dialogueRunner.CurrentNodeName))
@@ -77,8 +66,6 @@ public class Tutorial : MonoBehaviour
         else ShowContinueButton();
 
     }
-
-
 
     [YarnFunction("get_next_node")]
     public static string GetNode(int curr)
@@ -105,33 +92,8 @@ public class Tutorial : MonoBehaviour
         continueButton.SetActive(false);
     }
 
-    /*void UpdateDialogue(string next = "default")
-        {
-            dialogueText.color = Color.white;
-            dialogueText.fontStyle = FontStyles.Normal;
-            solvedTimer = solvedDelay;
-
-            if (next == "default")
-                finished = Array.FindIndex(passed, 0, (bool val) => val == false);
-            else finished = Array.IndexOf(testNames, next);
-
-            Debug.Log(finished + ": " + currentTestName);
-
-            currentTestName = testNames[finished];
-
-            if (dialogueRunner.IsDialogueRunning)
-                dialogueRunner.Stop();
-            dialogueRunner.StartDialogue(testNames[finished]);
-        }
-
-        void ShowPassed(bool delay = true, string next = "default")
-        {
-            if (!delay || !dialogueRunner.IsDialogueRunning || solvedTimer < 0)
-                UpdateDialogue(next);
-            else
-            {
-                dialogueText.color = Color.green;
-                solvedTimer -= Time.deltaTime;
-            }
-        }*/
+    [YarnCommand("start_timer")]
+    public void StartTimer() {
+        timeStarted = Time.time;
+    }
 }
