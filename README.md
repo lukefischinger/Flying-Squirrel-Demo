@@ -22,8 +22,9 @@ Play in browser on [Itch.io](https://lfischinger.itch.io/flying-squirrel-demo).
 ![Flying Squirrel 3](https://github.com/lukefischinger/Flying-Squirrel-Demo/assets/107618359/89c07c6b-bc13-4dfc-83ea-1e067e32fd01)
 
 ## Author
-All programming, art, and sound is by me, Luke Fischinger.
+All programming, art, and sound is by me (Luke Fischinger).
 
 ## License
 GNU General Public License v3.0
 
+See [License](https://github.com/lukefischinger/Flying-Squirrel-Demo/blob/master/License) for full text.
