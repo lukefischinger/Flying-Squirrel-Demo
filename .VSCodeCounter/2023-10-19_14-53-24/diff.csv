@@ -1,0 +1,38 @@
+"filename", "language", "C#", "JSON", "Markdown", "Yarn Spinner", "UnityShader", "comment", "blank", "total"
+"c:\Users\luke\Documents\Coding\Portfolio\Flying Squirrel Demo\Assets\NoPassing.cs", "C#", -41, 0, 0, 0, 0, 0, -10, -51
+"c:\Users\luke\Documents\Coding\Portfolio\Flying Squirrel Demo\Assets\Scripts\BackgroundManager.cs", "C#", 21, 0, 0, 0, 0, 0, 1, 22
+"c:\Users\luke\Documents\Coding\Portfolio\Flying Squirrel Demo\Assets\Scripts\FinishLine.cs", "C#", 16, 0, 0, 0, 0, 0, 7, 23
+"c:\Users\luke\Documents\Coding\Portfolio\Flying Squirrel Demo\Assets\Scripts\Player\PlayerControls.cs", "C#", -1265, 0, 0, 0, 0, -14, -15, -1294
+"c:\Users\luke\Documents\Coding\Portfolio\Flying Squirrel Demo\Assets\Scripts\Player\PlayerSounds.cs", "C#", 61, 0, 0, 0, 0, 0, 14, 75
+"c:\Users\luke\Documents\Coding\Portfolio\Flying Squirrel Demo\Assets\Scripts\PortraitLineView.cs", "C#", 4, 0, 0, 0, 0, 0, 2, 6
+"c:\Users\luke\Documents\Coding\Portfolio\Flying Squirrel Demo\Assets\Scripts\StartingLine.cs", "C#", 9, 0, 0, 0, 0, 0, 9, 18
+"c:\Users\luke\Documents\Coding\Portfolio\Flying Squirrel Demo\Assets\Scripts\Timer.cs", "C#", 58, 0, 0, 0, 0, 0, 16, 74
+"c:\Users\luke\Documents\Coding\Portfolio\Flying Squirrel Demo\Assets\Scripts\Trainer.cs", "C#", 91, 0, 0, 0, 0, 0, 32, 123
+"c:\Users\luke\Documents\Coding\Portfolio\Flying Squirrel Demo\Assets\Scripts\Tutorial.cs", "C#", -6, 0, 0, 0, 0, 0, 0, -6
+"c:\Users\luke\Documents\Coding\Portfolio\Flying Squirrel Demo\Assets\Scripts\UnstartingLine.cs", "C#", 9, 0, 0, 0, 0, 0, 3, 12
+"c:\Users\luke\Documents\Coding\Portfolio\Flying Squirrel Demo\Assets\TextMesh Pro\Shaders\TMP_Bitmap-Custom-Atlas.shader", "UnityShader", 0, 0, 0, 0, -111, 0, -33, -144
+"c:\Users\luke\Documents\Coding\Portfolio\Flying Squirrel Demo\Assets\TextMesh Pro\Shaders\TMP_Bitmap-Mobile.shader", "UnityShader", 0, 0, 0, 0, -115, 0, -31, -146
+"c:\Users\luke\Documents\Coding\Portfolio\Flying Squirrel Demo\Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader", "UnityShader", 0, 0, 0, 0, -111, 0, -33, -144
+"c:\Users\luke\Documents\Coding\Portfolio\Flying Squirrel Demo\Assets\TextMesh Pro\Shaders\TMP_SDF Overlay.shader", "UnityShader", 0, 0, 0, 0, -247, 0, -71, -318
+"c:\Users\luke\Documents\Coding\Portfolio\Flying Squirrel Demo\Assets\TextMesh Pro\Shaders\TMP_SDF SSD.shader", "UnityShader", 0, 0, 0, 0, -245, 0, -66, -311
+"c:\Users\luke\Documents\Coding\Portfolio\Flying Squirrel Demo\Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Masking.shader", "UnityShader", 0, 0, 0, 0, -198, 0, -50, -248
+"c:\Users\luke\Documents\Coding\Portfolio\Flying Squirrel Demo\Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader", "UnityShader", 0, 0, 0, 0, -191, 0, -50, -241
+"c:\Users\luke\Documents\Coding\Portfolio\Flying Squirrel Demo\Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile SSD.shader", "UnityShader", 0, 0, 0, 0, -86, 0, -21, -107
+"c:\Users\luke\Documents\Coding\Portfolio\Flying Squirrel Demo\Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile.shader", "UnityShader", 0, 0, 0, 0, -191, 0, -50, -241
+"c:\Users\luke\Documents\Coding\Portfolio\Flying Squirrel Demo\Assets\TextMesh Pro\Shaders\TMP_SDF-Surface-Mobile.shader", "UnityShader", 0, 0, 0, 0, -111, 0, -28, -139
+"c:\Users\luke\Documents\Coding\Portfolio\Flying Squirrel Demo\Assets\TextMesh Pro\Shaders\TMP_SDF-Surface.shader", "UnityShader", 0, 0, 0, 0, -126, 0, -33, -159
+"c:\Users\luke\Documents\Coding\Portfolio\Flying Squirrel Demo\Assets\TextMesh Pro\Shaders\TMP_SDF.shader", "UnityShader", 0, 0, 0, 0, -247, 0, -71, -318
+"c:\Users\luke\Documents\Coding\Portfolio\Flying Squirrel Demo\Assets\TextMesh Pro\Shaders\TMP_Sprite.shader", "UnityShader", 0, 0, 0, 0, -97, 0, -20, -117
+"c:\Users\luke\Documents\Coding\Portfolio\Flying Squirrel Demo\Assets\TextMesh Pro\Shaders\TMPro.cginc", "UnityShader", 0, 0, 0, 0, -65, 0, -20, -85
+"c:\Users\luke\Documents\Coding\Portfolio\Flying Squirrel Demo\Assets\TextMesh Pro\Shaders\TMPro_Mobile.cginc", "UnityShader", 0, 0, 0, 0, -124, 0, -34, -158
+"c:\Users\luke\Documents\Coding\Portfolio\Flying Squirrel Demo\Assets\TextMesh Pro\Shaders\TMPro_Properties.cginc", "UnityShader", 0, 0, 0, 0, -72, 0, -14, -86
+"c:\Users\luke\Documents\Coding\Portfolio\Flying Squirrel Demo\Assets\TextMesh Pro\Shaders\TMPro_Surface.cginc", "UnityShader", 0, 0, 0, 0, -83, 0, -19, -102
+"c:\Users\luke\Documents\Coding\Portfolio\Flying Squirrel Demo\Assets\TextMesh Pro\Sprites\EmojiOne.json", "JSON", 0, -155, 0, 0, 0, 0, -2, -157
+"c:\Users\luke\Documents\Coding\Portfolio\Flying Squirrel Demo\Assets\Yarn\Tutorial.yarn", "Yarn Spinner", 0, 0, 0, -121, 0, 0, -24, -145
+"c:\Users\luke\Documents\Coding\Portfolio\Flying Squirrel Demo\Packages\manifest.json", "JSON", 0, -57, 0, 0, 0, 0, -1, -58
+"c:\Users\luke\Documents\Coding\Portfolio\Flying Squirrel Demo\Packages\packages-lock.json", "JSON", 0, -510, 0, 0, 0, 0, -1, -511
+"c:\Users\luke\Documents\Coding\Portfolio\Flying Squirrel Demo\ProjectSettings\BurstAotSettings_StandaloneWindows.json", "JSON", 0, -17, 0, 0, 0, 0, -1, -18
+"c:\Users\luke\Documents\Coding\Portfolio\Flying Squirrel Demo\ProjectSettings\CommonBurstAotSettings.json", "JSON", 0, -6, 0, 0, 0, 0, -1, -7
+"c:\Users\luke\Documents\Coding\Portfolio\Flying Squirrel Demo\ProjectSettings\SceneTemplateSettings.json", "JSON", 0, -167, 0, 0, 0, 0, 0, -167
+"c:\Users\luke\Documents\Coding\Portfolio\Flying Squirrel Demo\README.md", "Markdown", 0, 0, -1, 0, 0, 0, -1, -2
+"Total", "-", -1043, -912, -1, -121, -2420, -14, -616, -5127

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: fe1836229a6465a4f995abdacfa89a26
+guid: fafbb2aedb4fb9e48b9d7625788137a4
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -127,28 +127,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites:
-    - serializedVersion: 2
-      name: Beaver Portrait_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 352
-        height: 256
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c0745871cc150ab47b9bd045161e8803
-      internalID: -1527849318
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
+    sprites: []
     outline: []
     physicsShape: []
     bones: []
@@ -159,8 +138,7 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      Beaver Portrait_0: -1527849318
+    nameFileIdTable: {}
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

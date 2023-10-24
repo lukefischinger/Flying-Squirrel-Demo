@@ -1,0 +1,116 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Platform Atlas
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 0
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings:
+    - serializedVersion: 3
+      m_BuildTarget: DefaultTexturePlatform
+      m_MaxTextureSize: 4096
+      m_ResizeAlgorithm: 0
+      m_TextureFormat: -1
+      m_TextureCompression: 0
+      m_CompressionQuality: 50
+      m_CrunchedCompression: 0
+      m_AllowsAlphaSplitting: 0
+      m_Overridden: 0
+      m_AndroidETC2FallbackOverride: 0
+      m_ForceMaximumCompressionQuality_BC6H_BC7: 0
+    packingSettings:
+      serializedVersion: 2
+      padding: 8
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 1
+      enableTightPacking: 0
+      enableAlphaDilation: 0
+    secondaryTextureSettings: {}
+    variantMultiplier: 1
+    packables:
+    - {fileID: 2800000, guid: 44ad0084ac7c77547b04356dd712ff46, type: 3}
+    bindAsDefault: 1
+    isAtlasV2: 0
+    cachedData: {fileID: 0}
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: -1680440149, guid: 44ad0084ac7c77547b04356dd712ff46, type: 3}
+  - {fileID: 644954824, guid: 44ad0084ac7c77547b04356dd712ff46, type: 3}
+  - {fileID: 1351747156, guid: 44ad0084ac7c77547b04356dd712ff46, type: 3}
+  - {fileID: -1982347116, guid: 44ad0084ac7c77547b04356dd712ff46, type: 3}
+  - {fileID: 1482250735, guid: 44ad0084ac7c77547b04356dd712ff46, type: 3}
+  - {fileID: 1325053182, guid: 44ad0084ac7c77547b04356dd712ff46, type: 3}
+  - {fileID: -642300996, guid: 44ad0084ac7c77547b04356dd712ff46, type: 3}
+  - {fileID: -1532739659, guid: 44ad0084ac7c77547b04356dd712ff46, type: 3}
+  - {fileID: -543031951, guid: 44ad0084ac7c77547b04356dd712ff46, type: 3}
+  - {fileID: -840085858, guid: 44ad0084ac7c77547b04356dd712ff46, type: 3}
+  - {fileID: 1289502683, guid: 44ad0084ac7c77547b04356dd712ff46, type: 3}
+  - {fileID: 1476095068, guid: 44ad0084ac7c77547b04356dd712ff46, type: 3}
+  - {fileID: 729079449, guid: 44ad0084ac7c77547b04356dd712ff46, type: 3}
+  - {fileID: -793726125, guid: 44ad0084ac7c77547b04356dd712ff46, type: 3}
+  - {fileID: 396701206, guid: 44ad0084ac7c77547b04356dd712ff46, type: 3}
+  - {fileID: 898686590, guid: 44ad0084ac7c77547b04356dd712ff46, type: 3}
+  - {fileID: -576755316, guid: 44ad0084ac7c77547b04356dd712ff46, type: 3}
+  - {fileID: -1277730141, guid: 44ad0084ac7c77547b04356dd712ff46, type: 3}
+  - {fileID: -1579908477, guid: 44ad0084ac7c77547b04356dd712ff46, type: 3}
+  - {fileID: -1219899, guid: 44ad0084ac7c77547b04356dd712ff46, type: 3}
+  - {fileID: -1344803131, guid: 44ad0084ac7c77547b04356dd712ff46, type: 3}
+  - {fileID: 683808942, guid: 44ad0084ac7c77547b04356dd712ff46, type: 3}
+  - {fileID: -95493086, guid: 44ad0084ac7c77547b04356dd712ff46, type: 3}
+  - {fileID: -1250809593, guid: 44ad0084ac7c77547b04356dd712ff46, type: 3}
+  - {fileID: -1681541152, guid: 44ad0084ac7c77547b04356dd712ff46, type: 3}
+  - {fileID: -1604599462, guid: 44ad0084ac7c77547b04356dd712ff46, type: 3}
+  - {fileID: -2099432359, guid: 44ad0084ac7c77547b04356dd712ff46, type: 3}
+  - {fileID: -2107160293, guid: 44ad0084ac7c77547b04356dd712ff46, type: 3}
+  - {fileID: 339606703, guid: 44ad0084ac7c77547b04356dd712ff46, type: 3}
+  - {fileID: -15896245, guid: 44ad0084ac7c77547b04356dd712ff46, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - Platform Flat Grass-Sheet_28
+  - Platform Flat Grass-Sheet_29
+  - Platform Flat Grass-Sheet_20
+  - Platform Flat Grass-Sheet_21
+  - Platform Flat Grass-Sheet_22
+  - Platform Flat Grass-Sheet_23
+  - Platform Flat Grass-Sheet_24
+  - Platform Flat Grass-Sheet_25
+  - Platform Flat Grass-Sheet_26
+  - Platform Flat Grass-Sheet_27
+  - Platform Flat Grass-Sheet_11
+  - Platform Flat Grass-Sheet_10
+  - Platform Flat Grass-Sheet_13
+  - Platform Flat Grass-Sheet_12
+  - Platform Flat Grass-Sheet_15
+  - Platform Flat Grass-Sheet_14
+  - Platform Flat Grass-Sheet_17
+  - Platform Flat Grass-Sheet_16
+  - Platform Flat Grass-Sheet_19
+  - Platform Flat Grass-Sheet_18
+  - Platform Flat Grass-Sheet_8
+  - Platform Flat Grass-Sheet_9
+  - Platform Flat Grass-Sheet_2
+  - Platform Flat Grass-Sheet_3
+  - Platform Flat Grass-Sheet_0
+  - Platform Flat Grass-Sheet_1
+  - Platform Flat Grass-Sheet_6
+  - Platform Flat Grass-Sheet_7
+  - Platform Flat Grass-Sheet_4
+  - Platform Flat Grass-Sheet_5
+  m_RenderDataMap: {}
+  m_Tag: Platform Atlas
+  m_IsVariant: 0

@@ -2,8 +2,6 @@ using UnityEngine;
 
 public class PlayerStateController : MonoBehaviour {
 
-    [SerializeField] Sounds sounds;
-
     PlayerInput input;
 
     // Running & Idling are "Ground" states, falling & gliding are "Air states", and climbing/jumping are in their own categories
@@ -13,17 +11,13 @@ public class PlayerStateController : MonoBehaviour {
 
     PlayerPhysics physics;
 
-    public AudioSource audioSource { get; private set; }
-
-    float climbingResetTime = 0.35f;
+    float climbingResetTime = 0.25f;
     float climbingResetTimeRemaining = 0f;
 
     void Awake() {
         input = GetComponent<PlayerInput>();
         myPlayerState = PlayerState.Idling;
         physics = GetComponent<PlayerPhysics>();
-
-        audioSource = GetComponent<AudioSource>();
     }
 
     private void Update() {
@@ -106,12 +100,4 @@ public class PlayerStateController : MonoBehaviour {
         myPlayerState = PlayerState.Jumping;
     }
 
-    public void SetAudioClip(string name) {
-        for (int i = 0; i < sounds.sounds.Count; i++) {
-            if (sounds.sounds[i].name == name && (audioSource.clip != sounds.sounds[i] || !audioSource.isPlaying)) {
-                audioSource.clip = sounds.sounds[i];
-                audioSource.Play();
-            }
-        }
-    }
 }

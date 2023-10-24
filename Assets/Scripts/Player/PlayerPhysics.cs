@@ -125,7 +125,7 @@ public class PlayerPhysics : MonoBehaviour {
         }
         // pressing down => increase x & y velocity in the direction facing
         else if (input.moveInput.y < -Mathf.Epsilon) {
-            deltaX = 2f * directionFacing * acceleration;
+            deltaX = 1.25f * directionFacing * acceleration;
             deltaY = -1.5f * Mathf.Abs(deltaX);
         }
         // not pressing down or up, or head is hitting ceiling

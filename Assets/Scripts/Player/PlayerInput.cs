@@ -4,7 +4,7 @@ public class PlayerInput : MonoBehaviour {
  
     // movement variables
     public Vector2 moveInput = Vector2.zero;    
-    PlayerControls myControls;
+    public PlayerControls myControls;
     public bool isPressingGrab => myControls.Player.Climb.ReadValue<float>() > Mathf.Epsilon;
     public bool isPressingGlide => myControls.Player.Glide.ReadValue<float>() > Mathf.Epsilon;
     public bool isJumpTriggered => myControls.Player.Jump.triggered;

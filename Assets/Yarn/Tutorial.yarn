@@ -1,21 +1,44 @@
-﻿title: Introduction
+﻿title: Concierge
+---
+<<if !visited("Introduction")>>
+    <<jump Introduction>>
+<<else>>
+    Do you want to try my course?
+        -> Yes.
+            <<jump TestYourSkills>>
+        -> No, something else.
+            Do you need me to remind you how to move?
+                -> Yes.
+                    <<jump StartTutorial>>
+                -> Never mind.
+<<endif>>
+===
+
+title: Introduction
 position: -719,-153
 ---
-<<declare $do_tutorial = true as bool>>
-<<declare $tutorial_complete = false>>
-Beavis: Hi, I'm Beavis. Do you know all the different ways you can move, or should I remind you?
-    -> I remember how to move.
-        <<jump GoAhead>>
-    -> Please remind me.
+<<declare $best_time = "" as string>>
+<<declare $last_time = "" as string>>
+<<declare $step_complete = false as bool>>
+<<declare $next_step = 0 as number>>
+<<declare $attempts = 0 as number>>
+
+Hi there. You look like you know how to run, glide, and climb--do you want to try my course?
+    -> Hmm, can you show me how first?
         <<jump StartTutorial>>
+    -> Yes, let's go!
+        <<jump TestYourSkills>>
 ===
 
 title: StartTutorial
 position: -408,15
 ---
-Beavis: Sure, let's go through it.
-<<declare $step_complete = false as bool>>
-<<declare $next_step = 0 as number>>
+Sure, let's go through all the ways you can move.
+You'll have to show me you understand each one before I let you move on to the next.
+<<set $step_complete = false>>
+<<set $next_step = 0>>
+<<unprime_timer  Trainer>>
+
 <<jump {get_next_node($next_step)}>>
 ===
 
@@ -26,107 +49,92 @@ title: JumpToNext
     <<set $next_step = $next_step + 1>>
     <<show_continue_button DialogueSystem>>
 <<endif>>
+<<hide_continue_button DialogueSystem>>
+
 <<jump {get_next_node($next_step)}>>
 ===
 
 title: Running
 position: -165,15
 ---
-<<hide_continue_button DialogueSystem>>
-
-Beavis: Press a or d to run.
-
+Press A or D to run.
 <<jump JumpToNext>>
 ===
 
 title: Climbing
 position: -158,156
 ---
-<<hide_continue_button DialogueSystem>>
-
-Beavis: Press w or s in front of a tree to climb it
+Press W or S in front of a tree to climb it.
 <<jump JumpToNext>>
 ===
-
 
 title: Jumping
 position: -155,304
 ---
-<<hide_continue_button DialogueSystem>>
-
-Beavis: Press space to jump
+Press SPACE to jump.
 <<jump JumpToNext>>
 ===
 
 title: DoubleJumping
 position: -156,437
 ---
-Beavis: Press space while in the air to jump again
+Press SPACE while in the air to double jump. Then you'll need to touch the ground or a tree before you can jump again.
 <<jump JumpToNext>>
 ===
 title: Gliding
 position: -152,581
 ---
-Beavis: Hold space while in the air to glide
+Hold SPACE while in the air to glide.
 <<jump JumpToNext>>
 ===
 title: Diving
 position: -148,723
 ---
-Beavis: Hold s while gliding to dive quickly
+Hold S while gliding to dive quickly.
 <<jump JumpToNext>>
 ===
 title: PullingUp
 position: -142,871
 ---
-Beavis: Hold w while diving to pull up. The faster you dive, the more you can pull up.
+Hold W while diving to pull up. The faster you dive, the more you can pull up.
 
+<<jump JumpToNext>>
 <<jump Final>>
 ===
 
 title: Final
 position: -150,1158
 ---
-<<set $tutorial_complete = true>>
-Beavis: Wow, you're already an old pro! 
+<<set $step_complete = true>>
+<<show_continue_button DialogueSystem>>
+Wow, you're already an old pro! 
 <<jump TestYourSkills>>
-===
-
-
-title: NoPassing
-position: -717,7
----
-<<if visited("Introduction")>>
-    Beavis: Hang on, you're not ready for that yet. Or do you remember how to move now?
-        -> Yes, I remember now.
-            <<jump TestYourSkills>>
-        -> No, I still need a reminder.
-            <<jump StartTutorial>>
-
-<<else>>
-    Beavis: Hang on, do you know how to move already?
-        -> Yep!
-            <<jump TestYourSkills>>
-        -> No, can you remind me?
-            <<jump StartTutorial>>
-<<endif>>
-
 ===
 
 
 title: TestYourSkills
 ---
-Beavis: How about you test out your skills on this course I set up?
-    -> Sure.
-        Beavis: Great! Keep an eye out for the markers I put up by the harder twists and turns.
-    -> I need to practice on my own first, but maybe later.
-        Beavis: Okay, let me know when you want to give it a try.
+<<prime_timer Trainer>>
+Go ahead whenever you're ready and I'll time you.
+<<if !visited("TestYourSkills")>>
+    And keep an eye out for markers near the harder twists and turns.
+<<endif>>
 ===
 
-title: GoAhead
-position: -412,-153
+title: FinishLine
 ---
-<<set $tutorial_complete = true>>
-Beavis: Alright, you can go on ahead.
-===
+<<set $attempts = $attempts + 1>>
+<<if $attempts == 1>>
+    Great job! Your new best time is {$best_time}.
+<<elseif $best_time == $last_time>>
+    Wow! You finished in {$best_time}, your best time yet.
+<<else>>
+    You finished in {$last_time}, not quite fast enough to beat your best time of {$best_time}.
+<<endif>>
 
+Do you want to try again?
+    -> Yes
+        <<jump TestYourSkills>>
+    -> Maybe later
+        Okay, just let me know.
+===

@@ -1,0 +1,79 @@
+Date : 2023-10-14 09:55:33
+Directory : c:\Users\luke\Documents\Coding\Portfolio\Flying Squirrel Demo
+Total : 38 files,  5387 codes, 46 comments, 881 blanks, all 6314 lines
+
+Languages
++--------------+------------+------------+------------+------------+------------+
+| language     | files      | code       | comment    | blank      | total      |
++--------------+------------+------------+------------+------------+------------+
+| UnityShader  |         17 |      2,420 |          0 |        644 |      3,064 |
+| C#           |         13 |      1,933 |         46 |        206 |      2,185 |
+| JSON         |          6 |        912 |          0 |          6 |        918 |
+| Yarn Spinner |          1 |        121 |          0 |         24 |        145 |
+| Markdown     |          1 |          1 |          0 |          1 |          2 |
++--------------+------------+------------+------------+------------+------------+
+
+Directories
++--------------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                                                                     | files      | code       | comment    | blank      | total      |
++--------------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                                                                        |         38 |      5,387 |         46 |        881 |      6,314 |
+| . (Files)                                                                                                                |          1 |          1 |          0 |          1 |          2 |
+| Assets                                                                                                                   |         32 |      4,629 |         46 |        876 |      5,551 |
+| Assets (Files)                                                                                                           |          1 |         41 |          0 |         10 |         51 |
+| Assets\Scripts                                                                                                           |         12 |      1,892 |         46 |        196 |      2,134 |
+| Assets\Scripts (Files)                                                                                                   |          4 |        223 |          8 |         68 |        299 |
+| Assets\Scripts\Player                                                                                                    |          6 |      1,648 |         38 |        122 |      1,808 |
+| Assets\Scripts\Scriptable Objects                                                                                        |          2 |         21 |          0 |          6 |         27 |
+| Assets\TextMesh Pro                                                                                                      |         18 |      2,575 |          0 |        646 |      3,221 |
+| Assets\TextMesh Pro\Shaders                                                                                              |         17 |      2,420 |          0 |        644 |      3,064 |
+| Assets\TextMesh Pro\Sprites                                                                                              |          1 |        155 |          0 |          2 |        157 |
+| Assets\Yarn                                                                                                              |          1 |        121 |          0 |         24 |        145 |
+| Packages                                                                                                                 |          2 |        567 |          0 |          2 |        569 |
+| ProjectSettings                                                                                                          |          3 |        190 |          0 |          2 |        192 |
++--------------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++--------------------------------------------------------------------------------------------------------------------------+--------------+------------+------------+------------+------------+
+| filename                                                                                                                 | language     | code       | comment    | blank      | total      |
++--------------------------------------------------------------------------------------------------------------------------+--------------+------------+------------+------------+------------+
+| c:\Users\luke\Documents\Coding\Portfolio\Flying Squirrel Demo\Assets\NoPassing.cs                                        | C#           |         41 |          0 |         10 |         51 |
+| c:\Users\luke\Documents\Coding\Portfolio\Flying Squirrel Demo\Assets\Scripts\BackgroundManager.cs                        | C#           |        118 |          8 |         42 |        168 |
+| c:\Users\luke\Documents\Coding\Portfolio\Flying Squirrel Demo\Assets\Scripts\Player\PlayerAnimation.cs                   | C#           |         62 |          3 |         13 |         78 |
+| c:\Users\luke\Documents\Coding\Portfolio\Flying Squirrel Demo\Assets\Scripts\Player\PlayerControls.cs                    | C#           |      1,265 |         14 |         15 |      1,294 |
+| c:\Users\luke\Documents\Coding\Portfolio\Flying Squirrel Demo\Assets\Scripts\Player\PlayerInput.cs                       | C#           |         27 |          1 |         14 |         42 |
+| c:\Users\luke\Documents\Coding\Portfolio\Flying Squirrel Demo\Assets\Scripts\Player\PlayerPhysics.cs                     | C#           |        197 |         18 |         54 |        269 |
+| c:\Users\luke\Documents\Coding\Portfolio\Flying Squirrel Demo\Assets\Scripts\Player\PlayerSounds.cs                      | C#           |          4 |          0 |          3 |          7 |
+| c:\Users\luke\Documents\Coding\Portfolio\Flying Squirrel Demo\Assets\Scripts\Player\PlayerStateController.cs             | C#           |         93 |          2 |         23 |        118 |
+| c:\Users\luke\Documents\Coding\Portfolio\Flying Squirrel Demo\Assets\Scripts\PortraitLineView.cs                         | C#           |          8 |          0 |          4 |         12 |
+| c:\Users\luke\Documents\Coding\Portfolio\Flying Squirrel Demo\Assets\Scripts\Scriptable Objects\PortraitDictionary.cs    | C#           |         14 |          0 |          4 |         18 |
+| c:\Users\luke\Documents\Coding\Portfolio\Flying Squirrel Demo\Assets\Scripts\Scriptable Objects\Sounds.cs                | C#           |          7 |          0 |          2 |          9 |
+| c:\Users\luke\Documents\Coding\Portfolio\Flying Squirrel Demo\Assets\Scripts\Trainer.cs                                  | C#           |         15 |          0 |          4 |         19 |
+| c:\Users\luke\Documents\Coding\Portfolio\Flying Squirrel Demo\Assets\Scripts\Tutorial.cs                                 | C#           |         82 |          0 |         18 |        100 |
+| c:\Users\luke\Documents\Coding\Portfolio\Flying Squirrel Demo\Assets\TextMesh Pro\Shaders\TMP_Bitmap-Custom-Atlas.shader | UnityShader  |        111 |          0 |         33 |        144 |
+| c:\Users\luke\Documents\Coding\Portfolio\Flying Squirrel Demo\Assets\TextMesh Pro\Shaders\TMP_Bitmap-Mobile.shader       | UnityShader  |        115 |          0 |         31 |        146 |
+| c:\Users\luke\Documents\Coding\Portfolio\Flying Squirrel Demo\Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader              | UnityShader  |        111 |          0 |         33 |        144 |
+| c:\Users\luke\Documents\Coding\Portfolio\Flying Squirrel Demo\Assets\TextMesh Pro\Shaders\TMP_SDF Overlay.shader         | UnityShader  |        247 |          0 |         71 |        318 |
+| c:\Users\luke\Documents\Coding\Portfolio\Flying Squirrel Demo\Assets\TextMesh Pro\Shaders\TMP_SDF SSD.shader             | UnityShader  |        245 |          0 |         66 |        311 |
+| c:\Users\luke\Documents\Coding\Portfolio\Flying Squirrel Demo\Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Masking.shader  | UnityShader  |        198 |          0 |         50 |        248 |
+| c:\Users\luke\Documents\Coding\Portfolio\Flying Squirrel Demo\Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader  | UnityShader  |        191 |          0 |         50 |        241 |
+| c:\Users\luke\Documents\Coding\Portfolio\Flying Squirrel Demo\Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile SSD.shader      | UnityShader  |         86 |          0 |         21 |        107 |
+| c:\Users\luke\Documents\Coding\Portfolio\Flying Squirrel Demo\Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile.shader          | UnityShader  |        191 |          0 |         50 |        241 |
+| c:\Users\luke\Documents\Coding\Portfolio\Flying Squirrel Demo\Assets\TextMesh Pro\Shaders\TMP_SDF-Surface-Mobile.shader  | UnityShader  |        111 |          0 |         28 |        139 |
+| c:\Users\luke\Documents\Coding\Portfolio\Flying Squirrel Demo\Assets\TextMesh Pro\Shaders\TMP_SDF-Surface.shader         | UnityShader  |        126 |          0 |         33 |        159 |
+| c:\Users\luke\Documents\Coding\Portfolio\Flying Squirrel Demo\Assets\TextMesh Pro\Shaders\TMP_SDF.shader                 | UnityShader  |        247 |          0 |         71 |        318 |
+| c:\Users\luke\Documents\Coding\Portfolio\Flying Squirrel Demo\Assets\TextMesh Pro\Shaders\TMP_Sprite.shader              | UnityShader  |         97 |          0 |         20 |        117 |
+| c:\Users\luke\Documents\Coding\Portfolio\Flying Squirrel Demo\Assets\TextMesh Pro\Shaders\TMPro.cginc                    | UnityShader  |         65 |          0 |         20 |         85 |
+| c:\Users\luke\Documents\Coding\Portfolio\Flying Squirrel Demo\Assets\TextMesh Pro\Shaders\TMPro_Mobile.cginc             | UnityShader  |        124 |          0 |         34 |        158 |
+| c:\Users\luke\Documents\Coding\Portfolio\Flying Squirrel Demo\Assets\TextMesh Pro\Shaders\TMPro_Properties.cginc         | UnityShader  |         72 |          0 |         14 |         86 |
+| c:\Users\luke\Documents\Coding\Portfolio\Flying Squirrel Demo\Assets\TextMesh Pro\Shaders\TMPro_Surface.cginc            | UnityShader  |         83 |          0 |         19 |        102 |
+| c:\Users\luke\Documents\Coding\Portfolio\Flying Squirrel Demo\Assets\TextMesh Pro\Sprites\EmojiOne.json                  | JSON         |        155 |          0 |          2 |        157 |
+| c:\Users\luke\Documents\Coding\Portfolio\Flying Squirrel Demo\Assets\Yarn\Tutorial.yarn                                  | Yarn Spinner |        121 |          0 |         24 |        145 |
+| c:\Users\luke\Documents\Coding\Portfolio\Flying Squirrel Demo\Packages\manifest.json                                     | JSON         |         57 |          0 |          1 |         58 |
+| c:\Users\luke\Documents\Coding\Portfolio\Flying Squirrel Demo\Packages\packages-lock.json                                | JSON         |        510 |          0 |          1 |        511 |
+| c:\Users\luke\Documents\Coding\Portfolio\Flying Squirrel Demo\ProjectSettings\BurstAotSettings_StandaloneWindows.json    | JSON         |         17 |          0 |          1 |         18 |
+| c:\Users\luke\Documents\Coding\Portfolio\Flying Squirrel Demo\ProjectSettings\CommonBurstAotSettings.json                | JSON         |          6 |          0 |          1 |          7 |
+| c:\Users\luke\Documents\Coding\Portfolio\Flying Squirrel Demo\ProjectSettings\SceneTemplateSettings.json                 | JSON         |        167 |          0 |          0 |        167 |
+| c:\Users\luke\Documents\Coding\Portfolio\Flying Squirrel Demo\README.md                                                  | Markdown     |          1 |          0 |          1 |          2 |
+| Total                                                                                                                    |              |      5,387 |         46 |        881 |      6,314 |
++--------------------------------------------------------------------------------------------------------------------------+--------------+------------+------------+------------+------------+
