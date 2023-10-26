@@ -82,13 +82,13 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Dig"",
-                    ""type"": ""Value"",
-                    ""id"": ""d843729f-10f2-4595-9801-58663779d277"",
-                    ""expectedControlType"": """",
+                    ""name"": ""Cancel"",
+                    ""type"": ""Button"",
+                    ""id"": ""4c448ca6-d7e6-418f-864a-487fa288140f"",
+                    ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
-                    ""initialStateCheck"": true
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -292,6 +292,17 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""7e959b2a-3b72-4cb5-95e7-478bd99fbb71"",
+                    ""path"": ""<Keyboard>/shift"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Glide"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""96d1a744-ea43-428d-afd0-65e0caa060db"",
                     ""path"": ""<Mouse>/rightButton"",
                     ""interactions"": """",
@@ -358,23 +369,12 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""17fe1fdd-ede0-400f-b2ca-d4f1c4e2b99f"",
-                    ""path"": ""<Keyboard>/shift"",
+                    ""id"": ""d7ce70f2-338b-4710-8c28-0f3db5dadba9"",
+                    ""path"": ""<Keyboard>/r"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard&Mouse"",
-                    ""action"": ""Dig"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""cd688263-ac7a-442e-93a1-a70fc6ac421e"",
-                    ""path"": ""<Gamepad>/buttonNorth"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Dig"",
+                    ""action"": ""Cancel"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -979,7 +979,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         m_Player_Jump = m_Player.FindAction("Jump", throwIfNotFound: true);
         m_Player_Glide = m_Player.FindAction("Glide", throwIfNotFound: true);
         m_Player_Climb = m_Player.FindAction("Climb", throwIfNotFound: true);
-        m_Player_Dig = m_Player.FindAction("Dig", throwIfNotFound: true);
+        m_Player_Cancel = m_Player.FindAction("Cancel", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -1057,7 +1057,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Jump;
     private readonly InputAction m_Player_Glide;
     private readonly InputAction m_Player_Climb;
-    private readonly InputAction m_Player_Dig;
+    private readonly InputAction m_Player_Cancel;
     public struct PlayerActions
     {
         private @PlayerControls m_Wrapper;
@@ -1068,7 +1068,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         public InputAction @Jump => m_Wrapper.m_Player_Jump;
         public InputAction @Glide => m_Wrapper.m_Player_Glide;
         public InputAction @Climb => m_Wrapper.m_Player_Climb;
-        public InputAction @Dig => m_Wrapper.m_Player_Dig;
+        public InputAction @Cancel => m_Wrapper.m_Player_Cancel;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1096,9 +1096,9 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 @Climb.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnClimb;
                 @Climb.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnClimb;
                 @Climb.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnClimb;
-                @Dig.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDig;
-                @Dig.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDig;
-                @Dig.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDig;
+                @Cancel.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnCancel;
+                @Cancel.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnCancel;
+                @Cancel.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnCancel;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -1121,9 +1121,9 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 @Climb.started += instance.OnClimb;
                 @Climb.performed += instance.OnClimb;
                 @Climb.canceled += instance.OnClimb;
-                @Dig.started += instance.OnDig;
-                @Dig.performed += instance.OnDig;
-                @Dig.canceled += instance.OnDig;
+                @Cancel.started += instance.OnCancel;
+                @Cancel.performed += instance.OnCancel;
+                @Cancel.canceled += instance.OnCancel;
             }
         }
     }
@@ -1286,7 +1286,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         void OnJump(InputAction.CallbackContext context);
         void OnGlide(InputAction.CallbackContext context);
         void OnClimb(InputAction.CallbackContext context);
-        void OnDig(InputAction.CallbackContext context);
+        void OnCancel(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

@@ -4,6 +4,8 @@ public class FinishLine : MonoBehaviour
 {
 
     [SerializeField] Trainer trainer;
+    [SerializeField] GameObject startingLine;
+
     AudioSource audioSource;
 
     bool crossed = false;
@@ -20,6 +22,7 @@ public class FinishLine : MonoBehaviour
             trainer.StopTimer();
             crossed = true;
             audioSource.Play();
+            trainer.PrimeTimer();
         }
     }
 

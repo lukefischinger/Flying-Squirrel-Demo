@@ -35,21 +35,46 @@ SpriteAtlas:
       m_ForceMaximumCompressionQuality_BC6H_BC7: 0
     packingSettings:
       serializedVersion: 2
-      padding: 8
+      padding: 4
       blockOffset: 1
       allowAlphaSplitting: 0
       enableRotation: 1
-      enableTightPacking: 0
+      enableTightPacking: 1
       enableAlphaDilation: 0
     secondaryTextureSettings: {}
     variantMultiplier: 1
     packables:
     - {fileID: 2800000, guid: 44ad0084ac7c77547b04356dd712ff46, type: 3}
+    - {fileID: 2800000, guid: d266f141b9169e74db40ee3bea45f0be, type: 3}
+    - {fileID: 2800000, guid: 67b3d7d0bf6fbd24ab1558997e21b044, type: 3}
+    - {fileID: 2800000, guid: 193e85a1737810c429d851f4547047df, type: 3}
     bindAsDefault: 1
     isAtlasV2: 0
     cachedData: {fileID: 0}
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
+  - {fileID: 1460004547, guid: 67b3d7d0bf6fbd24ab1558997e21b044, type: 3}
+  - {fileID: 496416195, guid: 67b3d7d0bf6fbd24ab1558997e21b044, type: 3}
+  - {fileID: 1914144588, guid: 67b3d7d0bf6fbd24ab1558997e21b044, type: 3}
+  - {fileID: -1138770179, guid: 67b3d7d0bf6fbd24ab1558997e21b044, type: 3}
+  - {fileID: -597085716, guid: 67b3d7d0bf6fbd24ab1558997e21b044, type: 3}
+  - {fileID: -1583414298, guid: 67b3d7d0bf6fbd24ab1558997e21b044, type: 3}
+  - {fileID: 592111409, guid: 67b3d7d0bf6fbd24ab1558997e21b044, type: 3}
+  - {fileID: 381302865, guid: 67b3d7d0bf6fbd24ab1558997e21b044, type: 3}
+  - {fileID: -1769856981, guid: d266f141b9169e74db40ee3bea45f0be, type: 3}
+  - {fileID: -161883950, guid: d266f141b9169e74db40ee3bea45f0be, type: 3}
+  - {fileID: 1967749930, guid: d266f141b9169e74db40ee3bea45f0be, type: 3}
+  - {fileID: -337866018, guid: d266f141b9169e74db40ee3bea45f0be, type: 3}
+  - {fileID: -770520774, guid: d266f141b9169e74db40ee3bea45f0be, type: 3}
+  - {fileID: -1062889493, guid: 193e85a1737810c429d851f4547047df, type: 3}
+  - {fileID: -1394098571, guid: 193e85a1737810c429d851f4547047df, type: 3}
+  - {fileID: -779983043, guid: 193e85a1737810c429d851f4547047df, type: 3}
+  - {fileID: -988082998, guid: 193e85a1737810c429d851f4547047df, type: 3}
+  - {fileID: -641708612, guid: 193e85a1737810c429d851f4547047df, type: 3}
+  - {fileID: -219539293, guid: 193e85a1737810c429d851f4547047df, type: 3}
+  - {fileID: 1071930370, guid: 193e85a1737810c429d851f4547047df, type: 3}
+  - {fileID: 636988150, guid: 193e85a1737810c429d851f4547047df, type: 3}
+  - {fileID: -1518402980, guid: 193e85a1737810c429d851f4547047df, type: 3}
   - {fileID: -1680440149, guid: 44ad0084ac7c77547b04356dd712ff46, type: 3}
   - {fileID: 644954824, guid: 44ad0084ac7c77547b04356dd712ff46, type: 3}
   - {fileID: 1351747156, guid: 44ad0084ac7c77547b04356dd712ff46, type: 3}
@@ -81,6 +106,28 @@ SpriteAtlas:
   - {fileID: 339606703, guid: 44ad0084ac7c77547b04356dd712ff46, type: 3}
   - {fileID: -15896245, guid: 44ad0084ac7c77547b04356dd712ff46, type: 3}
   m_PackedSpriteNamesToIndex:
+  - Tree without Foliage Grey-Sheet_4
+  - Tree without Foliage Grey-Sheet_5
+  - Tree without Foliage Grey-Sheet_6
+  - Tree without Foliage Grey-Sheet_7
+  - Tree without Foliage Grey-Sheet_0
+  - Tree without Foliage Grey-Sheet_1
+  - Tree without Foliage Grey-Sheet_2
+  - Tree without Foliage Grey-Sheet_3
+  - Foliage-Sheet_4
+  - Foliage-Sheet_3
+  - Foliage-Sheet_2
+  - Foliage-Sheet_1
+  - Foliage-Sheet_0
+  - Tree without Foliage-Sheet_1
+  - Tree without Foliage-Sheet_0
+  - Tree without Foliage-Sheet_3
+  - Tree without Foliage-Sheet_2
+  - Tree without Foliage-Sheet_5
+  - Tree without Foliage-Sheet_4
+  - Tree without Foliage-Sheet_7
+  - Tree without Foliage-Sheet_6
+  - Tree without Foliage-Sheet_8
   - Platform Flat Grass-Sheet_28
   - Platform Flat Grass-Sheet_29
   - Platform Flat Grass-Sheet_20

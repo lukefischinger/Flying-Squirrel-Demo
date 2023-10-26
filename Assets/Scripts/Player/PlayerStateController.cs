@@ -47,7 +47,7 @@ public class PlayerStateController : MonoBehaviour {
     }
 
     void SetAirState() {
-        if (physics.jumpTimeRemaining > 0 && myPlayerState == PlayerState.Jumping)
+        if (!physics.isFalling && myPlayerState == PlayerState.Jumping)
             myPlayerState = PlayerState.Jumping;
         else if (input.isPressingGlide)
             myPlayerState = PlayerState.Gliding;
@@ -64,15 +64,18 @@ public class PlayerStateController : MonoBehaviour {
         }
         else if (physics.isGrounded)
             SetGroundState();
-        else if(physics.isFalling)
-            SetAirState();
+        else SetAirState();
     }
 
     bool IsClimbing() {
         if (climbingResetTimeRemaining > 0)
             climbingResetTimeRemaining -= Time.deltaTime;
 
-        return (myPlayerState != PlayerState.Climbing && input.isPressingGrab && physics.isTouchingTrees && climbingResetTimeRemaining <= 0) ||
+        return (myPlayerState != PlayerState.Climbing && 
+                    myPlayerState != PlayerState.Gliding && 
+                    input.isPressingGrab && 
+                    physics.isTouchingTrees && 
+                    climbingResetTimeRemaining <= 0) ||
                (myPlayerState == PlayerState.Climbing && physics.isTouchingTrees && !input.isMoveXTriggered);
     }
 

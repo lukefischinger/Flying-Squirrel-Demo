@@ -60,13 +60,13 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Dig",
-                    "type": "Value",
-                    "id": "d843729f-10f2-4595-9801-58663779d277",
-                    "expectedControlType": "",
+                    "name": "Cancel",
+                    "type": "Button",
+                    "id": "4c448ca6-d7e6-418f-864a-487fa288140f",
+                    "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": true
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -270,6 +270,17 @@
                 },
                 {
                     "name": "",
+                    "id": "7e959b2a-3b72-4cb5-95e7-478bd99fbb71",
+                    "path": "<Keyboard>/shift",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Glide",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "96d1a744-ea43-428d-afd0-65e0caa060db",
                     "path": "<Mouse>/rightButton",
                     "interactions": "",
@@ -336,23 +347,12 @@
                 },
                 {
                     "name": "",
-                    "id": "17fe1fdd-ede0-400f-b2ca-d4f1c4e2b99f",
-                    "path": "<Keyboard>/shift",
+                    "id": "d7ce70f2-338b-4710-8c28-0f3db5dadba9",
+                    "path": "<Keyboard>/r",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard&Mouse",
-                    "action": "Dig",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "cd688263-ac7a-442e-93a1-a70fc6ac421e",
-                    "path": "<Gamepad>/buttonNorth",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Dig",
+                    "action": "Cancel",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

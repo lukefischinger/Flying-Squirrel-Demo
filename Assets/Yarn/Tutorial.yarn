@@ -2,8 +2,12 @@
 ---
 <<if !visited("Introduction")>>
     <<jump Introduction>>
+<<elseif $attempts >= 1>>
+    Do you want to try again?
 <<else>>
     Do you want to try my course?
+<<endif>>
+
         -> Yes.
             <<jump TestYourSkills>>
         -> No, something else.
@@ -11,7 +15,6 @@
                 -> Yes.
                     <<jump StartTutorial>>
                 -> Never mind.
-<<endif>>
 ===
 
 title: Introduction
@@ -84,7 +87,7 @@ Press SPACE while in the air to double jump. Then you'll need to touch the groun
 title: Gliding
 position: -152,581
 ---
-Hold SPACE while in the air to glide.
+Hold SPACE after jumping to glide, or hold SHIFT to glide without jumping.
 <<jump JumpToNext>>
 ===
 title: Diving
@@ -117,6 +120,7 @@ title: TestYourSkills
 <<prime_timer Trainer>>
 Go ahead whenever you're ready and I'll time you.
 <<if !visited("TestYourSkills")>>
+    If you want to restart at any point, press R.
     And keep an eye out for markers near the harder twists and turns.
 <<endif>>
 ===

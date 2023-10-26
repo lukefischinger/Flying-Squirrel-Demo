@@ -22,8 +22,8 @@ public class PlayerPhysics : MonoBehaviour {
     public Rigidbody2D myRigidbody { get; private set; }
     private Vector2 savedVelocity = Vector2.zero;
     private float savedVelocityTimeRemaining = 0f;
-    public int directionMoving { get; private set; }
-    public int directionFacing { get; private set; }
+    public int directionMoving;
+    public int directionFacing;
 
     public bool isGrounded => myFeetCollider.IsTouchingLayers(LayerMask.GetMask("Ground"));
     public bool isFalling => myRigidbody.velocity.y < fallingThreshold;

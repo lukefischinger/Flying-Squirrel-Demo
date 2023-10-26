@@ -8,12 +8,13 @@ public class Trainer : MonoBehaviour
 
     [SerializeField] DialogueRunner dialogueRunner;
     [SerializeField] Timer timer;
-    [SerializeField] GameObject startingLine, unstartingLine, startingLineBlock;
-    [SerializeField] GameObject player;
+    [SerializeField] GameObject startingLine, unstartingLine, startingLineBlock, player, quickRestart;
     [SerializeField] FinishLine finishLine;
     [SerializeField] CinemachineVirtualCamera followCam, fadeOutCam;
     [SerializeField] CinemachineBrain brainCam;
     [SerializeField] PlayerInput input;
+    [SerializeField] BackgroundManager backgroundManager;
+
 
     GameObject prompt;
     Transform myTransform, playerTransform, promptTransform;
@@ -38,7 +39,7 @@ public class Trainer : MonoBehaviour
 
     void Update()
     {
-        if (canInteract && input.myControls.Player.Interact.triggered && !dialogueRunning)
+        if (canInteract && input.isInteractTriggered && !dialogueRunning)
         {
             StartDialogue();
         }
@@ -46,8 +47,32 @@ public class Trainer : MonoBehaviour
         dialogueRunning = dialogueRunner.IsDialogueRunning;
 
         FlipSprite();
+        UpdateQuickRestart();
+
     }
 
+    void UpdateQuickRestart()
+    {
+        if(!timer.IsVisible)
+            return;
+
+        if (input.isCancelTriggered)
+        {
+            quickRestart.SetActive(!quickRestart.activeInHierarchy);
+            Time.timeScale = quickRestart.activeInHierarchy ? 0f : 1f;
+        }
+
+        if (quickRestart.activeInHierarchy)
+        {
+            if (input.isInteractTriggered)
+            {
+                Time.timeScale = 1f;
+                StopTimer(isTracked: false);
+                quickRestart.SetActive(false);
+
+            }
+        }
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -83,13 +108,16 @@ public class Trainer : MonoBehaviour
         timer.StartTimer();
         finishLine.Reset();
     }
-    public void StopTimer()
+    public void StopTimer(bool isTracked = true)
     {
-        timer.StopTimer(true);
-        dialogueRunner.VariableStorage.SetValue("$best_time", timer.GetBestTime());
-        dialogueRunner.VariableStorage.SetValue("$last_time", timer.GetLastTime());
+        timer.StopTimer(isTracked);
+        if (isTracked)
+        {
+            dialogueRunner.VariableStorage.SetValue("$best_time", timer.GetBestTime());
+            dialogueRunner.VariableStorage.SetValue("$last_time", timer.GetLastTime());
+        }
 
-        StartCoroutine(FadeToStart());
+        StartCoroutine(FadeToStart(isTracked));
     }
 
     [YarnCommand("prime_timer")]
@@ -111,31 +139,43 @@ public class Trainer : MonoBehaviour
 
 
 
-    IEnumerator FadeToStart()
+    IEnumerator FadeToStart(bool finished = true)
     {
 
-        yield return new WaitForSeconds(1f);
+        float waitTime = finished ? 1f : 0.25f;
+
+
+        if(finished)
+            yield return new WaitForSeconds(waitTime);
 
         followCam.Priority = 0;
         fadeOutCam.Priority = 1;
 
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(waitTime);
 
         Vector3 posDelta = resetLocation - player.transform.position;
         player.transform.position = resetLocation;
-        player.transform.localScale = Vector3.one;
+        player.GetComponent<PlayerStateController>().myPlayerState = PlayerStateController.PlayerState.Idling;
+        player.GetComponent<PlayerPhysics>().directionFacing = 1;
+        player.GetComponent<PlayerPhysics>().myRigidbody.velocity = Vector3.zero;
+
+
+        backgroundManager.ResetBackground();
+
         followCam.OnTargetObjectWarped(player.transform, posDelta);
         fadeOutCam.OnTargetObjectWarped(player.transform, posDelta);
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(waitTime);
 
         followCam.Priority = 1;
         fadeOutCam.Priority = 0;
 
-        yield return new WaitForSeconds(brainCam.m_DefaultBlend.BlendTime);
-
         if (dialogueRunner.IsDialogueRunning)
             dialogueRunner.Stop();
-        dialogueRunner.StartDialogue(finishDialogue);
+        if (finished)
+            dialogueRunner.StartDialogue(finishDialogue);
     }
+
+
+
 
 }

@@ -8,6 +8,9 @@ public class Timer : MonoBehaviour
     [SerializeField] TextMeshProUGUI display;
     [SerializeField] UnityEngine.UI.Image background;
 
+
+    public bool IsVisible => display.enabled;
+
     float timeStarted;
     TimeSpan
         timeElapsed,
@@ -32,9 +35,9 @@ public class Timer : MonoBehaviour
         SetVisible(true);
     }
 
-    public void StopTimer(bool record = true)
+    public void StopTimer(bool isTracked = true)
     {
-        if (record)
+        if (isTracked)
         {
             if (timeElapsed < bestTime)
             {
@@ -70,6 +73,7 @@ public class Timer : MonoBehaviour
 
     public string GetLastTime() => ConvertTimeSpanToString(lastTime);
     public string GetBestTime() => ConvertTimeSpanToString(bestTime);
+
 
 
 }

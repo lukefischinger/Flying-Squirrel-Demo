@@ -55,9 +55,11 @@ public class PlayerSounds : MonoBehaviour
 
     void PauseAllExceptCurrent()
     {
-        if (gliding.isPlaying && myStateController.myPlayerState != PlayerState.Gliding)
+        if (gliding.isPlaying && (myStateController.myPlayerState != PlayerState.Gliding || Time.timeScale == 0))
         {
-            if (glidingFadeTimer < 0)
+            if(Time.timeScale == 0)
+                gliding.Pause();
+            else if (glidingFadeTimer < 0)
                 gliding.Pause();
             else
             {
@@ -65,11 +67,11 @@ public class PlayerSounds : MonoBehaviour
                 glidingFadeTimer -= Time.deltaTime;
             }
         }
-        if (running.isPlaying && myStateController.myPlayerState != PlayerState.Running)
+        if (running.isPlaying && (myStateController.myPlayerState != PlayerState.Running  || Time.timeScale == 0))
         {
             running.Pause();
         }
-        if (climbing.isPlaying && myStateController.myPlayerState != PlayerState.Climbing)
+        if (climbing.isPlaying && (myStateController.myPlayerState != PlayerState.Climbing || Time.timeScale == 0))
         {
             climbing.Pause();
         }
