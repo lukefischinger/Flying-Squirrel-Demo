@@ -1,5 +1,5 @@
 # Flying-Squirrel-Demo
-This is a small prototype for a platformer in which you play as a flying squirrel who can run, jump, climb, and glide. The demo includes a dialogue-based movement tutorial and a short timed course.
+This is a prototype for a platformer in which you play as a flying squirrel who can run, jump, climb, and glide. It includes a dialogue-based movement tutorial and a timed course.
 
 Play in browser on [Itch.io](https://lfischinger.itch.io/flying-squirrel-demo).
 
